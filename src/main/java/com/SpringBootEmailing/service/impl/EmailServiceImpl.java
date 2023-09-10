@@ -105,7 +105,8 @@ public class EmailServiceImpl implements EmailService {
             helper.setFrom(from);
             helper.setTo(to);
             Context ctx = new Context();
-            ctx.setVariables(Map.of("name", name, "url", createVerificationUrl(token, host)));
+            String url = host + "/api/users?token=" + token;
+            ctx.setVariables(Map.of("name", name, "url", url));
             String text = templateEngine.process("emailTemplate.html", ctx);
             helper.setText(text, true);
             mailSender.send(message);
