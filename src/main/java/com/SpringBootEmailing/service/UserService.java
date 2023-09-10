@@ -1,10 +1,9 @@
 package com.SpringBootEmailing.service;
 
-import com.SpringBootEmailing.entities.ConfirmationEntity;
 import com.SpringBootEmailing.entities.UserEntity;
 
 public interface UserService {
-    public UserEntity saveUser(UserEntity user);
-    public UserEntity findUserByMail(String email);
-    public ConfirmationEntity findConfirmationToken(String token);
+    UserEntity saveUser(UserEntity user);
+    UserEntity findUserByMail(String email);
+    Boolean verifyToken(String token);
 }
